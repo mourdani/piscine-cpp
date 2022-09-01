@@ -6,7 +6,7 @@
 /*   By: mourdani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 17:14:57 by mourdani          #+#    #+#             */
-/*   Updated: 2022/09/01 20:50:02 by mourdani         ###   ########.fr       */
+/*   Updated: 2022/09/01 20:52:27 by mourdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,8 +101,9 @@ class Phonebook
 		{
 
 			int i = 0;
-			int index;
+			int index = 0;
 
+			
 			std::cout << "_____________________________________________" << std::endl;
 			std::cout << "|" << "  Index   "
 			<< "|" << "First name" << "|" << " Last name"
@@ -120,6 +121,10 @@ class Phonebook
 			std::cout << "|__________|__________|__________|__________|" << std::endl;
 			std::cout << "Enter an index to display: ";
 			std::cin >> index; 
+			if (index == 0)
+			{
+				std::cout << "index non existent" << std::endl;
+			}
 			std::cout << "First name: ";
 			std::cout << contact[index].first << std::endl;
 			std::cout << "Last name: ";
