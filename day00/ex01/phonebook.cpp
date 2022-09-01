@@ -6,7 +6,7 @@
 /*   By: mourdani <mourdani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 02:48:09 by mourdani          #+#    #+#             */
-/*   Updated: 2022/08/25 05:31:04 by mourdani         ###   ########.fr       */
+/*   Updated: 2022/08/30 22:17:11 by mourdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ class Contact
 		std::string nick;
 		unsigned int number;
 		std::string secret;
+		int set;
 
 };
 
@@ -94,6 +95,7 @@ class Phonebook
 				if (!contact[i].number) std::cout << "Number can't be empty" << std::endl;
 			}
 			contact[i].index = i;
+			contact[i].set = 1;
 			std::cout << "Contact saved at index " << contact[i].index  << std::endl;
 			i++;
 			std::cout << "============================================" << std::endl;
@@ -103,9 +105,10 @@ class Phonebook
 		void	search(void)
 		{
 			int i = -1;
+			int index = -1;
 			std::cout << "|" << "  Index   " << "|" << "First name" << "|" << " Last name" << "|" << " Nickname " << "|" << std::endl;
 			std::cout << "|__________|__________|__________|__________|" << std::endl;
-			while (++i < 4)
+			while (contact[++i].set == 1)
 			{
 				std::cout	<< "|" << "         "
 						<< contact[i].index  << "|" << ptrunk(contact[i].first)
@@ -113,6 +116,14 @@ class Phonebook
 						<< "|" << std::endl;
 			}
 			std::cout << "============================================" << std::endl;
+			std::cout << "Enter an index to display: ";
+			std::cin >> index; 
+			std::cout << index;
+			std::cout << contact[index].first;
+			std::cout << contact[index].last << std::endl;
+			std::cout << contact[index].nick << std::endl;
+			std::cout << contact[index].secret << std::endl;
+			std::cout << contact[index].number << std::endl;
 		}
 
 };
