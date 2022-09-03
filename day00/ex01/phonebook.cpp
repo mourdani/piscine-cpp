@@ -6,23 +6,14 @@
 /*   By: mourdani <mourdani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 02:48:09 by mourdani          #+#    #+#             */
-/*   Updated: 2022/09/03 04:15:51 by mourdani         ###   ########.fr       */
+/*   Updated: 2022/09/03 04:59:38 by mourdani         ###   ########.fr       */
 /*   Updated: 2022/08/28 20:54:02 by mourdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
-#include <unistd.h>
 #include "phonebook.hpp"
 
-bool is_number(const std::string& s)
-{
-	std::string::const_iterator it = s.begin();
-	while (it != s.end() && std::isdigit(*it)) ++it;
-	return !s.empty() && it == s.end();
-}
-
+// right aligns and truncs the output to fit the SEARCH table.
 std::string	ptrunk(std::string str)
 {
 	int space_size;
@@ -36,7 +27,9 @@ std::string	ptrunk(std::string str)
 	return str;
 }
 
-
+// mode 1 : checks if only small cap letters are found and retuns 1 if false;
+// mode 2 : checks if not empty and not only whitespaces and returns 1 if false;
+// both return 0 if true.
 int	check_empty(std::string str, int mode)
 {
 	if (mode == 1)
@@ -46,7 +39,6 @@ int	check_empty(std::string str, int mode)
 		{
 			std::cout << "Input can only contain alphabets" << std::endl;
 			std::cin.clear();
-//			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 			return 1;
 		}
 	}
@@ -64,42 +56,31 @@ int	check_empty(std::string str, int mode)
 	return 0;
 }
 
-void	add_info(std::string str, int set)
-{
-	while (getline(std::cin, str))
-		if (str != "")
-		       	break;
-	if (!check_empty(str, 1))
-		set = 1;
-	/*
-	while (getline(std::cin, contact[i].first))
-		if (contact[i].first != "")
-		       	break;
-	if (!check_empty(contact[i].first, 1))
-		contact[i].set = 1;
-	*/
-}
-
 int	main()
 {
+	// Phonebook is a class containing 8 contacts. mycontact[7]; 
+	// command is the input command;
 	Phonebook mycontact;
 	std::string command;
 
 	while (1)
 	{
-		std::cout << "===============================================" << std::endl;
+		std::cout << BOLD_LINE << std::endl;
 		std::cout << "Enter a command..." << std::endl;
 		std::cin >> command;
-		std::cout << "===============================================" << std::endl;
+		std::cout << BOLD_LINE << std::endl;
 
+		// Execute function according to the inputed command
 		if (command.compare("SEARCH") == 0)
 		{
-			if(mycontact.search()) break;
+			if(mycontact.search())
+				break;
 		}
-
 		else if (command.compare("ADD") == 0)
 			mycontact.add();
+
 		else if (command.compare("EXIT") == 0) return 0;
+
 		else std::cout << "COMMAND UNKNOWN.\tAvailable commands : ADD, SEARCH, EXIT" << std::endl;
 	}
 	return 0;
