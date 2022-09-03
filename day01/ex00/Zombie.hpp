@@ -1,37 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mourdani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/19 01:03:56 by mourdani          #+#    #+#             */
-/*   Updated: 2022/09/03 05:04:46 by mourdani         ###   ########.fr       */
+/*   Created: 2022/09/03 06:03:55 by mourdani          #+#    #+#             */
+/*   Updated: 2022/09/03 06:28:32 by mourdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include <string>
-#include <locale>
+#include <iostream>
 
 
-int main(int ac, char **av)
+class Zombie
 {
-	int i = 0;
+	public :
+	
+		std::string name;
 
-	if (ac == 1)
-	{
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;;
-		return 0;
-	}
-	while (av[++i])
-	{
-		std::string str = av[i];
-		std::use_facet<std::ctype<char> >(std::locale()).toupper(&str[0], &str[0] + str.size());
-		if (av[i + 1]) 
-			std::cout << str << " ";
-		else
-			std::cout << str << std::endl;
-	}
-	return 0;
-}
+		void	announce(void)
+		{
+			std::cout << name << ":" <<  "BraiiiiiiinnnzzzZ..." << std::endl;
+		}
+}; 
+
+Zombie* newZombie(std::string name);
+void    randomChump(std::string name);
