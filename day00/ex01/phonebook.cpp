@@ -6,7 +6,7 @@
 /*   By: mourdani <mourdani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 02:48:09 by mourdani          #+#    #+#             */
-/*   Updated: 2022/09/01 20:53:46 by mourdani         ###   ########.fr       */
+/*   Updated: 2022/09/03 04:15:51 by mourdani         ###   ########.fr       */
 /*   Updated: 2022/08/28 20:54:02 by mourdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
@@ -36,21 +36,30 @@ std::string	ptrunk(std::string str)
 	return str;
 }
 
+
 int	check_empty(std::string str, int mode)
 {
 	if (mode == 1)
 	{
-		if ((str.find_first_not_of("abcdefhijklmnopqrstuvwxyz") != std::string::npos
-			&& str.find_first_not_of(" \t") == std::string::npos) || str.empty())
+		if (str.find_first_not_of("abcdefhijklmnopqrstuvwxyz") != std::string::npos
+			|| str.empty())
 		{
-			std::cout << "Input only accepts alphabets" << std::endl;
+			std::cout << "Input can only contain alphabets" << std::endl;
+			std::cin.clear();
+//			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 			return 1;
 		}
 	}
-	else if (mode == 2 && (str.find_first_not_of("01123456789") != std::string::npos || str.empty()))
+	else if (mode == 2)
 	{
-		std::cout << "Number must only contain digits" << std::endl;
-		return 1;
+		if ((str.find_first_not_of("abcdefhijklmnopqrstuvwxyz") != std::string::npos
+			&& str.find_first_not_of(" \t") == std::string::npos) || str.empty())
+		{
+			std::cout << "Input can not be empty" << std::endl;
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			return 1;
+		}
 	}
 	return 0;
 }
@@ -84,7 +93,9 @@ int	main()
 		std::cout << "===============================================" << std::endl;
 
 		if (command.compare("SEARCH") == 0)
-			mycontact.search();
+		{
+			if(mycontact.search()) break;
+		}
 
 		else if (command.compare("ADD") == 0)
 			mycontact.add();
