@@ -4,7 +4,8 @@ NAME = zombie
 
 HEADERS = Zombie.hpp
 SOURCES = newZombie.cpp \
-	  randomChump.cpp
+	  randomChump.cpp \
+	  main.cpp  
 
 OBJECT = $(SOURCES:.cpp=.o)
 all: $(NAME)

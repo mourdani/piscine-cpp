@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   randomChump.cpp                                    :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mourdani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/03 06:16:19 by mourdani          #+#    #+#             */
-/*   Updated: 2022/09/08 23:32:37 by mourdani         ###   ########.fr       */
+/*   Created: 2022/09/08 22:25:22 by mourdani          #+#    #+#             */
+/*   Updated: 2022/09/08 23:35:32 by mourdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-// Creates a zombie, and announces its name.
-// STORED IN THE STACK as we dont need to use it later.
-void	randomChump(std::string name)
+int	main()
 {
-	Zombie zombie = Zombie(name);
-	zombie.announce();
+	Zombie *bruh = newZombie("Mr. Zombie");
+	bruh->announce();
+
+	randomChump("A random zombie");
+
+	
+	delete bruh;
+	return 0;
 }
