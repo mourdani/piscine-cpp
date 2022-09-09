@@ -6,7 +6,7 @@
 /*   By: mourdani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 06:03:55 by mourdani          #+#    #+#             */
-/*   Updated: 2022/09/08 23:37:31 by mourdani         ###   ########.fr       */
+/*   Updated: 2022/09/09 02:51:56 by mourdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,11 @@ class Zombie
 		void announce(void)
 		{
 			std::cout << _name << ": " <<  "BraiiiiiiinnnzzzZ..." << std::endl;
+		}
+
+		~Zombie()
+		{
+			std::cout << _name <<" has been destroyed"<< std::endl;
 		}
 }; 
 
