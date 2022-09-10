@@ -6,7 +6,7 @@
 /*   By: mourdani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 01:03:56 by mourdani          #+#    #+#             */
-/*   Updated: 2022/09/10 10:31:32 by mourdani         ###   ########.fr       */
+/*   Updated: 2022/09/10 15:04:12 by mourdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int main(int ac, char **av)
 		std::string str = av[i];
 		std::use_facet<std::ctype<char> >(std::locale()).toupper(&str[0], &str[0] + str.size());
 		if (av[i + 1]) 
-			std::cout << str << " ";
+			std::cout << str;
 		else
 			std::cout << str << std::endl;
 	}
