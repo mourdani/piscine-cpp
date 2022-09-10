@@ -6,7 +6,7 @@
 /*   By: mourdani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 01:03:56 by mourdani          #+#    #+#             */
-/*   Updated: 2022/09/03 05:04:46 by mourdani         ###   ########.fr       */
+/*   Updated: 2022/09/10 10:31:32 by mourdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,22 @@ int main(int ac, char **av)
 {
 	int i = 0;
 
+	if (ac > 1)
+	{
+		std::string str = av[1];
+		if (str.empty())
+		{
+			std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;;
+			return 0;
+		}
+	}
+	
 	if (ac == 1)
 	{
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;;
 		return 0;
 	}
+		
 	while (av[++i])
 	{
 		std::string str = av[i];
