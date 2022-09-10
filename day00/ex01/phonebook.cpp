@@ -6,7 +6,7 @@
 /*   By: mourdani <mourdani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 02:48:09 by mourdani          #+#    #+#             */
-/*   Updated: 2022/09/04 18:21:08 by mourdani         ###   ########.fr       */
+/*   Updated: 2022/09/10 15:10:22 by mourdani         ###   ########.fr       */
 /*   Updated: 2022/08/28 20:54:02 by mourdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
@@ -34,8 +34,8 @@ int	check_empty(std::string str, int mode)
 {
 	if (mode == 1)
 	{
-		if (str.find_first_not_of("abcdefhijklmnopqrstuvwxyz") != std::string::npos
-			|| str.empty())
+		if (str.find_first_not_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") != std::string::npos
+			|| str.empty())    
 		{
 			std::cout << "Input can only contain alphabets" << std::endl;
 			std::cin.clear();
@@ -44,7 +44,7 @@ int	check_empty(std::string str, int mode)
 	}
 	else if (mode == 2)
 	{
-		if ((str.find_first_not_of("abcdefhijklmnopqrstuvwxyz") != std::string::npos
+		if ((str.find_first_not_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") != std::string::npos
 			&& str.find_first_not_of(" \t") == std::string::npos) || str.empty())
 		{
 			std::cout << "Input can not be empty" << std::endl;
@@ -63,7 +63,7 @@ int	main()
 	Phonebook mycontact;
 	std::string command;
 
-	while (1)
+	while (std::cin)
 	{
 		std::cout << BOLD_LINE << std::endl;
 		std::cout << "Enter a command..." << std::endl;
