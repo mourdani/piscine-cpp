@@ -3,7 +3,8 @@ FLAGS = -Wall -Wextra -Werror -std=c++98
 NAME = phonebook
 
 HEADERS = phonebook.hpp
-SOURCES = phonebook.cpp	
+SOURCES = phonebook.cpp	\
+	  main.cpp
 
 OBJECT = $(SOURCES:.cpp=.o)
 all: $(NAME)
