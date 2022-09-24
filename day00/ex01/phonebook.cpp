@@ -6,81 +6,123 @@
 /*   By: mourdani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 11:23:24 by mourdani          #+#    #+#             */
-/*   Updated: 2022/09/17 11:44:06 by mourdani         ###   ########.fr       */
+/*   Updated: 2022/09/24 20:59:02 by mourdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "phonebook.hpp"
 
+int Contact::getIndex(void){
+	return (_index);
+};
+int Contact::getSet(void){
+	return (_set);
+};
+std::string Contact::getFirst(void){
+	return (_first);
+};
+std::string Contact::getLast(void){
+	return (_last);
+};
+std::string Contact::getNick(void){
+	return (_nick);
+};
+int Contact::getNumber(void){
+	return (_number);
+};
+std::string Contact::getSecret(void){
+	return (_secret);
+};
+void Contact::setIndex(int n){
+	_index = n;
+};
+void Contact::setSet(int set){
+	_set = set;
+};
+void Contact::setFirst(std::string str){
+	_first = str;
+};
+void Contact::setLast(std::string str){
+	_last = str;
+};
+void Contact::setNick(std::string str){
+	_nick = str;
+};
+void Contact::setNumber(int n){
+	_number = n;
+};
+void Contact::setSecret(std::string str){
+	_secret = str;
+};
 
-int Phonebook::add()
+/*
+int add()
 {
 	static int i = 0;
-	contact[i].index = i;
+	setindex = i + 1;
 	
 	// replace oldest contact with newest one
-	if (i > 7) i = i % 8;
 
 	// Information Input
-	contact[i].set = 0;
-	while ((contact[i].first.empty() || contact[i].set == 0))
+	_set = 0;
+	while ((_first.empty() || _set == 0))
 	{
 		std::cout << "First name: ";
 		// get all input from std::cin
-		while (getline(std::cin, contact[i].first))
-			if (contact[i].first != "")
+		while (getline(std::cin, _first))
+			if (_first != "")
 			       	break;
-		if (contact[i].first.empty())
-			return 1;	
-		if (!check_empty(contact[i].first, 1))
-			contact[i].set = 1;
+		if (_first.empty())
+			return ;	
+		if (!check_empty(_first, 1))
+			_set = 1;
 	}
 	
-	contact[i].set = 0;
-	while (contact[i].last.empty() || contact[i].set == 0)
+	_set = 0;
+	while (_last.empty() || _set == 0)
 	{
 		std::cout << "Last name: ";
-		while (getline(std::cin, contact[i].last))
-			if (contact[i].last != "")
+		while (getline(std::cin, _last))
+			if (_last != "")
 				break;
-		if (contact[i].last.empty())
-			return 1;	
-		if (!check_empty(contact[i].last, 1))
-			contact[i].set = 1;
+		if (_last.empty())
+			return ;	
+		if (!check_empty(_last, 1))
+			_set = 1;
 	}
 
-	contact[i].set = 0;
-	while (contact[i].nick.empty() || contact[i].set == 0)
+	_set = 0;
+	while (_nick.empty() || _set == 0)
 	{
 		std::cout << "Nickname: ";
-		while (getline(std::cin, contact[i].nick))
-			if (contact[i].nick != "")
+		while (getline(std::cin, _nick))
+			if (_nick != "")
 				break;
-		if (contact[i].nick.empty())
-			return 1;	
-		if (!check_empty(contact[i].nick, 1))
-			contact[i].set = 1;
+		if (_nick.empty())
+			return ;	
+		if (!check_empty(_nick, 1))
+			_set = 1;
 	}
 	
-	contact[i].set = 0;
-	while (contact[i].secret.empty() || contact[i].set == 0)
+	_set = 0;
+	while (_secret.empty() || _set == 0)
 	{
-		std::cout << "Darkest secret: ";
-		while (getline(std::cin, contact[i].secret))
-			if (contact[i].secret != "")
+		std::cout << "Darkest _secret: ";
+		while (getline(std::cin, _secret))
+			if (_secret != "")
 				break;
-		if (contact[i].secret.empty())
-			return 1;	
-		if (!check_empty(contact[i].secret, 2))
-			contact[i].set = 1;
+		if (_secret.empty())
+			return ;	
+		if (!check_empty(_secret, 2))
+			_set = 1;
 	}
 
-	contact[i].set = 0;
-	while (!contact[i].number || contact[i].set == 0)
+	_set = 0;
+	while (!_number || _set == 0)
 	{
 		std::cout << "Number: ";
-		std::cin >> contact[i].number;
-		if (!contact[i].number)
+		std::cin >> _number;
+		if (!_number)
 		{
 			std::cout << "Number can only contains digits" << std::endl;
 			// clear std::cin stream for new output
@@ -88,16 +130,16 @@ int Phonebook::add()
 			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		}
 		else
-			contact[i].set = 1;
+			_set = 1;
 	}
-	std::cout << "Contact saved at index " << contact[i++].index  << std::endl;
-	return 0;
+	std::cout << "saved at _index " << _index  << std::endl;
+	return;
 }
-
-int	Phonebook::search(void)
+*
+int	Contact::search(void)
 {
-	int i = -1;
-	int index = -1;
+	//int i = -1;
+	int index = 0;
 
 	// Search table output
 	std::cout << SLIM_LINE << std::endl;
@@ -105,21 +147,20 @@ int	Phonebook::search(void)
 	<< "|" << "First name" << "|" << " Last name"
 	<< "|" << " Nickname " << "|" << std::endl;
 	std::cout << COLUMNS << std::endl;
-	while (contact[++i].set == 1)
+	while (set == 1)
 	{
-		std::cout	<< "|" << "         " << contact[i].index
-		<< "|" << ptrunk(contact[i].first)
-		<< "|" <<  ptrunk(contact[i].last)
-		<< "|" << ptrunk(contact[i].nick)
+		std::cout	<< "|" << "         " << index
+		<< "|" << ptrunk(first)
+		<< "|" <<  ptrunk(last)
+		<< "|" << ptrunk(_nick)
 		<< "|" << std::endl;
 	}
 	std::cout << COLUMNS << std::endl << std::endl;
 
-
 	// Index display output
-	std::cout << "Enter the index of the contact to display :";
+	std::cout << "Enter the index of the to display :";
 	std::cin >> index; 
-	if (index == -1 || contact[index].set != 1) // check if index is not existent 
+	if (index <= 0 || index > 8 || set != 1 || !index) // check if index is not existent 
 	{
 		std::cout << "index non existent" << std::endl;
 		std::cin.clear();
@@ -129,15 +170,15 @@ int	Phonebook::search(void)
 	{
 		std::cout << SLIM_LINE << std::endl;
 		std::cout << "First name: ";
-		std::cout << "\t\t\t\t" <<  contact[index].first << std::endl;
+		std::cout << "\t\t\t\t" <<  first << std::endl;
 		std::cout <<  "Last name: ";
-		std::cout << "\t\t\t\t" <<  contact[index].last << std::endl;
+		std::cout << "\t\t\t\t" <<  last << std::endl;
 		std::cout <<  "Nickname: ";
-		std::cout << "\t\t\t\t" <<  contact[index].nick << std::endl;
+		std::cout << "\t\t\t\t" <<  nick << std::endl;
 		std::cout <<  "Darkest secret: ";
-		std::cout << "\t\t\t" <<  contact[index].secret << std::endl;
+		std::cout << "\t\t\t" <<  secret << std::endl;
 		std::cout <<  "Number: ";
-		std::cout << "\t\t\t\t" <<  contact[index].number << std::endl;
+		std::cout << "\t\t\t\t" <<  number << std::endl;
 	}
 	return (0);
 }
@@ -173,7 +214,7 @@ int	check_empty(std::string str, int mode)
 	}
 	else if (mode == 2)
 	{
-		if ((str.find_first_not_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") != std::string::npos
+		if ((str.find_first_not_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,.") != std::string::npos
 			&& str.find_first_not_of(" \t") == std::string::npos) || str.empty())
 		{
 			std::cout << "Input can not be empty" << std::endl;
@@ -184,4 +225,4 @@ int	check_empty(std::string str, int mode)
 	}
 	return 0;
 }
-
+*/
