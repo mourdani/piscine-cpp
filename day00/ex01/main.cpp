@@ -6,7 +6,7 @@
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 02:48:09 by mourdani          #+#    #+#             */
 /*   Updated: 2022/09/10 15:10:22 by mourdani         ###   ########.fr       */
-/*   Updated: 2022/09/17 19:06:25 by mourdani         ###   ########.fr       */
+/*   Updated: 2022/09/25 11:58:54 by mourdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 
 int	main()
 {
-	// Phonebook is a class containing 8 contacts. mycontact[7]; 
+	// Phonebook is a class containing 8 contacts. phonebook[7]; 
 	// command is the input command;
-	Phonebook mycontact;
+	Phonebook phonebook;
 	std::string command;
 
+	// !! Think about removing the static
 	static int i = 0;
 	while (std::cin)
 	{
@@ -27,17 +28,12 @@ int	main()
 		std::cin >> command;
 		std::cout << BOLD_LINE << std::endl;
 
-		if (i > 7) i = i % 8;
 		// Execute function according to the inputed command
-		/*
-		if (command.compare("SEARCH") == 0)
-		{
-			if(mycontact.search())
-				break;
-		}
-		*/
 		if (command.compare("ADD") == 0)
-			mycontact.contact[i].add();
+			phonebook.contact[i++].add();
+
+		else if (command.compare("SEARCH") == 0)
+			phonebook.search();
 
 		else if (command.compare("EXIT") == 0) return 0;
 

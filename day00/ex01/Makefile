@@ -4,6 +4,8 @@ NAME = phonebook
 
 HEADERS = phonebook.hpp
 SOURCES = phonebook.cpp	\
+	  addContact.cpp \
+	  showPhonebook.cpp \
 	  main.cpp
 
 OBJECT = $(SOURCES:.cpp=.o)
