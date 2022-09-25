@@ -6,7 +6,7 @@
 /*   By: mourdani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 17:14:57 by mourdani          #+#    #+#             */
-/*   Updated: 2022/09/25 11:42:25 by mourdani         ###   ########.fr       */
+/*   Updated: 2022/09/25 15:04:12 by mourdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,6 @@ class Contact
 		std::string getNick(void);
 		std::string getSecret(void);
 		int getNumber(void);
-
-		void setFirst(std::string);
-		void setLast(std::string);
-		void setNick(std::string);
-		void setNumber(int n);
-		void setSecret(std::string);
-		
 
 		// Function to add a contact 
 		int add();

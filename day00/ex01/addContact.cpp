@@ -3,11 +3,8 @@
 int Contact::add()
 {
 	static int i = 0;
-	// replace oldest contact with newest one
-	if (i > 7) i %= 8;
 
 	index = i + 1;
-	std::cout << i << std::endl;
 	// Information Input
 	set = 0;
 	while ((_first.empty() || set == 0))
@@ -29,8 +26,7 @@ int Contact::add()
 		while (getline(std::cin, _last))
 			if (_last != "")
 				break;
-		if (_last.empty())
-			return 1;	
+		if (_last.empty()) return 1;	
 		if (!check_empty(_last, 1))
 			set = 1;
 	}
@@ -40,12 +36,9 @@ int Contact::add()
 	{
 		std::cout << "Nickname: ";
 		while (getline(std::cin, _nick))
-			if (_nick != "")
-				break;
-		if (_nick.empty())
-			return 1;	
-		if (!check_empty(_nick, 1))
-			set = 1;
+			if (_nick != "") break;
+		if (_nick.empty()) return 1;	
+		if (!check_empty(_nick, 1)) set = 1;
 	}
 	
 	set = 0;
@@ -53,12 +46,9 @@ int Contact::add()
 	{
 		std::cout << "Darkest secret: ";
 		while (getline(std::cin, _secret))
-			if (_secret != "")
-				break;
-		if (_secret.empty())
-			return 1;	
-		if (!check_empty(_secret, 2))
-			set = 1;
+			if (_secret != "")	break;
+		if (_secret.empty())		return 1;	
+		if (!check_empty(_secret, 2))	set = 1;
 	}
 
 	set = 0;

@@ -10,7 +10,7 @@ int	Phonebook::search(void)
 	<< "|" << "First name" << "|" << " Last name"
 	<< "|" << " Nickname " << "|" << std::endl;
 	std::cout << COLUMNS << std::endl;
-	while (contact[++i].set == 1)
+	while (contact[++i].set == 1 && i < 8)
 	{
 		std::cout	<< "|" << "         " << contact[i].index
 		<< "|" << ptrunk(contact[i].getFirst())

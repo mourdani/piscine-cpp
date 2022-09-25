@@ -6,7 +6,7 @@
 /*   By: mourdani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 11:23:24 by mourdani          #+#    #+#             */
-/*   Updated: 2022/09/25 11:17:06 by mourdani         ###   ########.fr       */
+/*   Updated: 2022/09/25 15:04:19 by mourdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,21 +26,6 @@ int Contact::getNumber(void){
 };
 std::string Contact::getSecret(void){
 	return (_secret);
-};
-void Contact::setFirst(std::string str){
-	_first = str;
-};
-void Contact::setLast(std::string str){
-	_last = str;
-};
-void Contact::setNick(std::string str){
-	_nick = str;
-};
-void Contact::setNumber(int n){
-	_number = n;
-};
-void Contact::setSecret(std::string str){
-	_secret = str;
 };
 
 // right aligns and truncs the output to fit the SEARCH table.
