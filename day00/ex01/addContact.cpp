@@ -3,11 +3,11 @@
 int Contact::add()
 {
 	static int i = 0;
-	index = i + 1;
-	
 	// replace oldest contact with newest one
 	if (i > 7) i %= 8;
 
+	index = i + 1;
+	std::cout << i << std::endl;
 	// Information Input
 	set = 0;
 	while ((_first.empty() || set == 0))

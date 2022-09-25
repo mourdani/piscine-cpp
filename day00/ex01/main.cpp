@@ -6,7 +6,7 @@
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 02:48:09 by mourdani          #+#    #+#             */
 /*   Updated: 2022/09/10 15:10:22 by mourdani         ###   ########.fr       */
-/*   Updated: 2022/09/25 11:58:54 by mourdani         ###   ########.fr       */
+/*   Updated: 2022/09/25 14:57:17 by mourdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ int	main()
 	static int i = 0;
 	while (std::cin)
 	{
+		// replace oldest contact with newest one
+		if (i > 7) i %= 8;
 		std::cout << BOLD_LINE << std::endl;
 		std::cout << "Enter a command..." << std::endl;
 		std::cin >> command;
