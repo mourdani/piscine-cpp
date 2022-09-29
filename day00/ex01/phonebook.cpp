@@ -6,27 +6,11 @@
 /*   By: mourdani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 11:23:24 by mourdani          #+#    #+#             */
-/*   Updated: 2022/09/25 15:04:19 by mourdani         ###   ########.fr       */
+/*   Updated: 2022/09/29 02:00:16 by mourdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "phonebook.hpp"
-
-std::string Contact::getFirst(void){
-	return (_first);
-};
-std::string Contact::getLast(void){
-	return (_last);
-};
-std::string Contact::getNick(void){
-	return (_nick);
-};
-int Contact::getNumber(void){
-	return (_number);
-};
-std::string Contact::getSecret(void){
-	return (_secret);
-};
 
 // right aligns and truncs the output to fit the SEARCH table.
 std::string	ptrunk(std::string str)

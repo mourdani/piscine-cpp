@@ -1,11 +1,14 @@
-CC = c++
+CC = g++
 FLAGS = -Wall -Wextra -Werror -std=c++98 
 NAME = phonebook
 
-HEADERS = phonebook.hpp
+HEADERS = phonebook.hpp \
+	  Contact.class.hpp \
+	  Phonebook.class.hpp \
+
 SOURCES = phonebook.cpp	\
-	  addContact.cpp \
-	  showPhonebook.cpp \
+	  Contact.class.cpp \
+	  Phonebook.class.cpp \
 	  main.cpp
 
 OBJECT = $(SOURCES:.cpp=.o)
@@ -14,7 +17,7 @@ all: $(NAME)
 %.o: %.cpp %.hpp
 	$(CC) $(FLAGS) -c $< -o $@
 
-$(NAME): $(OBJECT)
+$(NAME): $(OBJECT) $(HEADERS)
 	$(CC) $(FLAGS) $(OBJECT) -o $(NAME)
 
 clean:

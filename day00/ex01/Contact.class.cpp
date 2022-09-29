@@ -1,9 +1,38 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Contact.class.cpp                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mourdani <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/28 23:52:53 by mourdani          #+#    #+#             */
+/*   Updated: 2022/09/29 02:21:18 by mourdani         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "phonebook.hpp"
+
+std::string Contact::getFirst(void){
+	return (_first);
+};
+std::string Contact::getLast(void){
+	return (_last);
+};
+std::string Contact::getNick(void){
+	return (_nick);
+};
+int Contact::getNumber(void){
+	return (_number);
+};
+std::string Contact::getSecret(void){
+	return (_secret);
+};
 
 int Contact::add()
 {
 	static int i = 0;
 
+	if (i > 7) i %= 8;
 	index = i + 1;
 	// Information Input
 	set = 0;
@@ -13,8 +42,8 @@ int Contact::add()
 		// get all input from std::cin
 		while (getline(std::cin, _first))
 			if (_first != "")
-			       	break; if (_first.empty())
-			return 1;	
+			       	break;
+		if (_first.empty()) return 1;	
 		if (!check_empty(_first, 1))
 			set = 1;
 	}
