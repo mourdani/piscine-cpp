@@ -1,28 +1,48 @@
-CC = g++
-FLAGS = -Wall -Wextra -Werror -std=c++98 
-NAME = demo 
+# Name of the program.
+NAME     := weapon
 
-HEADERS = Weapon.hpp \
-	  HumanA.hpp \
-	  HumanB.hpp 
+# Sources and objects.
+SRCS     := srcs/Weapon.cpp\
+	    srcs/HumanA.cpp\
+	    srcs/HumanB.cpp\
+	    srcs/main.cpp
 
-SOURCES = Weapon.cpp \
-	  HumanA.cpp \
-	  HumanB.cpp \
-	  main.cpp
+HDRS     := inc/Weapon.hpp\
+	    inc/HumanA.hpp\
+	    inc/HumanB.hpp
 
+OBJS     := $(SRCS:.cpp=.o)
 
-OBJECT = $(SOURCES:.cpp=.o)
+# Define all the compiling flags.
+CXX      := g++
+CXXFLAGS := -std=c++98 -Wall -Werror -Wextra
+
+# Compile and create everything.
 all: $(NAME)
 
+# Compile the program with the objects.
+$(NAME): $(OBJS) $(HDRS)
+	@$(CXX) $(OBJS) -o $@
+
+# This won't run if the source files don't exist or are not modified.
 %.o: %.cpp %.hpp
-	$(CC) $(FLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) -o $@ -c $<
 
-$(NAME): $(OBJECT) 
-	$(CC) $(FLAGS) $(OBJECT) -o $(NAME)
-
+# Rule to remove all the object files.
 clean:
-	rm -rf $(OBJECT)
+	@rm -f $(OBJS)
+	@echo "[INFO] Objects removed!"
+
+# Rule to remove everything that has been created by the makefile.
 fclean: clean
-	rm -fr $(NAME)
-re: fclean all
+	@rm -f $(NAME)
+	@echo "[INFO] $(NAME) removed!"
+
+# Rule to re-make everything.
+re:     fclean all
+
+# Makes sure that gnu make will still run even if files called
+# clean / fclean / all and re already exist in the directory
+.PHONY: all clean fclean re
+
+
