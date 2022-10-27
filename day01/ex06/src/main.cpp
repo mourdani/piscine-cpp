@@ -6,7 +6,7 @@
 /*   By: mourdani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 13:47:27 by mourdani          #+#    #+#             */
-/*   Updated: 2022/10/28 00:48:31 by mourdani         ###   ########.fr       */
+/*   Updated: 2022/10/28 01:28:58 by mourdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,10 @@
 int	main(int ac, char **av) {
 
 	(void)ac;
-	(void)av;
+	
+	if (ac != 2)
+		return 1;
 	Harl karen;
-	karen.complain("DEBUG");
-	karen.complain("INFO");
-	karen.complain("WARNING");
-	karen.complain("ERROR");
+	karen.complain(av[1]);
 	return 0;
 }
