@@ -32,6 +32,7 @@ clean:
 # Rule to remove everything that has been created by the makefile.
 fclean: clean
 	@rm -f $(NAME)
+	@rm  *.replace
 	@echo "[INFO] $(NAME) removed!"
 
 # Rule to re-make everything.

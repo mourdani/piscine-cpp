@@ -6,7 +6,7 @@
 /*   By: mourdani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 22:25:22 by mourdani          #+#    #+#             */
-/*   Updated: 2022/09/09 01:24:38 by mourdani         ###   ########.fr       */
+/*   Updated: 2022/10/28 02:02:19 by mourdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	main()
 {
-	Zombie *Hord = zombieHorde(8, "bougata");
+	Zombie *Hord = zombieHorde(8, "fooo");
 	
 	delete [] Hord;
 	return 0;

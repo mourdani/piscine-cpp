@@ -1,5 +1,5 @@
 # Name of the program.
-NAME     := harl
+NAME     := Harl
 
 # Sources and objects.
 SRCS     := src/main.cpp \

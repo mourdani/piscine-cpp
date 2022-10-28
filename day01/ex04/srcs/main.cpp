@@ -6,7 +6,7 @@
 /*   By: mourdani <mourdani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 00:24:05 by mourdani          #+#    #+#             */
-/*   Updated: 2022/10/07 03:42:46 by mourdani         ###   ########.fr       */
+/*   Updated: 2022/10/28 01:56:47 by mourdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,12 @@ std::string	sed(std::string buffer, std::string str1,  std::string str2){
 
 int	main(int ac, char **av) {
 
+	if (ac != 4)
+	{
+		std::cout << "[USAGE] ./sed filename string_original string_replace";
+		return 1;
+	}
+	
 	// Intitialise variables
 	std::string filename(av[1]);
 	std::string str1(av[2]);
@@ -38,7 +44,7 @@ int	main(int ac, char **av) {
 	std::ifstream ofile(av[1]);
 
 	// check for errors
-	if (str1.empty() || ac != 4 || ofile.fail()) return 1;
+	if (str1.empty() || ofile.fail()) return 1;
 
 	// Loop to store content of file object to buffer
 	while (ofile.good()) buffer += ofile.get();

@@ -28,12 +28,12 @@ $(NAME): $(OBJS) $(HDRS)
 # Rule to remove all the object files.
 clean:
 	@rm -f $(OBJS)
-	@echo "[INFO] Objects removed!"
+	@echo "Objects removed!"
 
 # Rule to remove everything that has been created by the makefile.
 fclean: clean
 	@rm -f $(NAME)
-	@echo "[INFO] $(NAME) removed!"
+	@echo "$(NAME) removed!"
 
 # Rule to re-make everything.
 re:     fclean all
