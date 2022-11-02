@@ -6,7 +6,7 @@
 /*   By: mourdani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 03:03:25 by mourdani          #+#    #+#             */
-/*   Updated: 2022/09/09 03:19:59 by mourdani         ###   ########.fr       */
+/*   Updated: 2022/11/02 02:16:04 by mourdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main()
 
 	// string and stringREF have the same adresse and not stringPTR
 	std::cout << "Adresse of string: " << &string << std::endl;
-	std::cout << "Adresse of stringPTR: " << &stringPTR << std::endl;
+	std::cout << "Adresse of stringPTR: " << stringPTR << std::endl;
 	std::cout << "Adresse of stringREF: " << &stringREF << std::endl;
 	
 	// All have the same value
