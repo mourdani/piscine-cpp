@@ -12,7 +12,7 @@ OBJS     := $(SRCS:.cpp=.o)
 
 # Define all the compiling flags.
 CXX      := c++
-CXXFLAGS := -std=c++98 -Wall -Werror -Wextra
+CXXFLAGS := -std=c++98 -Wall -Werror -Wextra -Wno-implicit-fallthrough
 
 # Compile and create everything.
 all: $(NAME)

@@ -50,24 +50,16 @@ void Harl::complain( std::string level ){
 	switch (lvl) {
 		case 0:
 			this->_debug();
-			this->_info();
-			this->_warning();
-			this->_error();
-			break;
 		case 1:
 			this->_info();
-			this->_warning();
-			this->_error();
-			break;
 		case 2:
 			this->_warning();
-			this->_error();
-			break;
 		case 3:
 			this->_error();
 			break;
 		default :
 			std::cout << "[ Probably complaining about insignificant problems ]\n";
+			return;
 	}
 
 
