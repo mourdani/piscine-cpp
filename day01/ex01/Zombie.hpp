@@ -21,9 +21,9 @@ class Zombie
 		std::string _name;
 
 	public :
-		// Constructor which does nothing.
+		// Default Constructor.
 		Zombie();
-		// Function to name the zombie.
+		// Constructor taking zombie name.
 		Zombie(std::string name);
 
 		// Function to announce the zombie.
