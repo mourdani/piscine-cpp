@@ -1,0 +1,31 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mourdani <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/14 16:37:13 by mourdani          #+#    #+#             */
+/*   Updated: 2022/11/14 16:47:43 by mourdani         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../inc/ClapTrap.hpp"
+
+ClapTrap::ClapTrap()
+ClapTrap::ClapTrap(std::string name);
+ClapTrap::ClapTrap(const ClapTrap & cpy);
+~ClapTrap::ClapTrap();
+
+void ClapTrap::attack(const std::string &target) {
+
+}
+
+void ClapTrap::takeDamage(unsigned int amount) {
+
+}
+
+void ClapTrap::beRepaired(unsigned int amount) {
+
+}
+
