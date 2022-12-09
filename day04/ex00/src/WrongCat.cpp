@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mourdani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,29 +10,29 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/Cat.hpp"
+#include "../inc/WrongCat.hpp"
 
 
 
-Cat::Cat() : Animal("Cat") {
-    std::cout << "Cat constructor has been called\n";
+WrongCat::WrongCat() : WrongAnimal("WrongCat") {
+    std::cout << "WrongCat constructor has been called\n";
 }
 
-Cat::Cat(const Cat & cpy) : Animal(cpy) {
-    std::cout << "Cat copy constructor has been called\n";
+WrongCat::WrongCat(const WrongCat & cpy) : WrongAnimal(cpy) {
+    std::cout << "WrongCat copy constructor has been called\n";
     *this = cpy;
 }
 
-Cat &Cat::operator=(const Cat & cpy) {
+WrongCat &WrongCat::operator=(const WrongCat & cpy) {
     std::cout << "Assignation operator has been called\n";
     setType(cpy.getType());
     return *this;
 }
 
-Cat::~Cat() {
-        std::cout << "Cat Destructor has been called\n";
+WrongCat::~WrongCat() {
+        std::cout << "WrongCat Destructor has been called\n";
 }
 
-void Cat::makeSound() const {
+void WrongCat::makeSound() const{
     std::cout << "Meow Meow Meow\n";
 };

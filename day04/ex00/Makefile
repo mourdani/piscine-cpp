@@ -4,12 +4,16 @@ NAME     := Animal
 # Sources and objects.
 SRCS     := src/main.cpp \
 		src/Animal.cpp \
+		src/WrongAnimal.cpp \
 		src/Dog.cpp \
-		src/Cat.cpp
+		src/Cat.cpp \
+		src/WrongCat.cpp
 
 HDRS     := inc/Animal.hpp \
+		inc/WrongAnimal.hpp \
 		inc/Dog.hpp \
-		inc/Cat.hpp 
+		inc/Cat.hpp \
+		inc/WrongCat.hpp 
 
 
 OBJS     := $(SRCS:.cpp=.o)

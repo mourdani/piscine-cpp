@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mourdani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,39 +10,39 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/Animal.hpp"
+#include "../inc/WrongAnimal.hpp"
 
-Animal::Animal() {
-    std::cout << "Animal default constructor has been called\n";
+WrongAnimal::WrongAnimal() {
+    std::cout << "WrongAnimal default constructor has been called\n";
 }
 
-Animal::Animal(std::string type): _type(type) {
-    std::cout << "Animal parameterized constructor has been called\n";
+WrongAnimal::WrongAnimal(std::string type): _type(type) {
+    std::cout << "WrongAnimal parameterized constructor has been called\n";
 }
 
-Animal::Animal(const Animal & cpy) {
-    std::cout << "Animal copy constructor has been called\n";
+WrongAnimal::WrongAnimal(const WrongAnimal & cpy) {
+    std::cout << "WrongAnimal copy constructor has been called\n";
     *this = cpy;
 }
 
-Animal &Animal::operator=(const Animal & cpy) {
+WrongAnimal &WrongAnimal::operator=(const WrongAnimal & cpy) {
     std::cout << "Assignation operator has been called\n";
     setType(cpy.getType());
     return *this;
 }
 
-Animal::~Animal() {
-        std::cout << "Animal Destructor has been called\n";
+WrongAnimal::~WrongAnimal() {
+        std::cout << "WrongAnimal Destructor has been called\n";
 }
 
-void Animal::makeSound() const {
+void WrongAnimal::makeSound() const{
     std::cout << "Inaudible " << this->_type << " animal voice\n";
 }; 
 
-std::string Animal::getType(void) const {
+std::string WrongAnimal::getType(void) const {
     return this->_type;
 }
 
-void Animal::setType(std::string const newtype) {
+void WrongAnimal::setType(std::string const newtype) {
     this->_type = newtype;
 }
