@@ -29,7 +29,7 @@ class Animal {
 
 		Animal &operator=(const Animal & cpy);
 		
-		void makeSound() const;
+		virtual void makeSound() const;
 		std::string getType(void) const;
 		void setType(std::string const newtype);
 };

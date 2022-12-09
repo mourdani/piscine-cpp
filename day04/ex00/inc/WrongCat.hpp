@@ -15,7 +15,7 @@
 
 #include "WrongAnimal.hpp"
 
-class WrongCat : WrongAnimal {
+class WrongCat : public WrongAnimal {
     public :
         WrongCat();
 		WrongCat(const WrongCat & cpy);
@@ -23,7 +23,7 @@ class WrongCat : WrongAnimal {
 		
 		WrongCat &operator=(const WrongCat & cpy);
 
-        virtual void makeSound() const;
+        void makeSound() const;
 };
 
 #endif

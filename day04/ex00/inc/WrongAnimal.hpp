@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string>
-#include <iostream>
+
+#ifndef WRONGANIMAL_HPP
+#define WRONGANIMAL_HPP
 
 class WrongAnimal {
 	protected :
@@ -28,3 +29,5 @@ class WrongAnimal {
 		std::string getType(void) const;
 		void setType(std::string const newtype);
 };
+
+#endif
