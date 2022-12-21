@@ -1,32 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mourdani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/20 16:53:00 by mourdani          #+#    #+#             */
-/*   Updated: 2022/11/20 16:56:53 by mourdani         ###   ########.fr       */
+/*   Created: 2022/11/20 16:46:28 by mourdani          #+#    #+#             */
+/*   Updated: 2022/11/20 17:20:19 by mourdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-#define DOG_HPP
 
-#include "Animal.hpp"
+#ifndef ANIMAL_HPP
+#define ANIMAL_HPP
 
-class Dog : public Animal {
-    private:
-    	Brain* _brain;
-    public :
-        Dog();
-		Dog(const Dog & cpy);
-		~Dog();
+#include <string>
+#include <iostream>
+
+#include "Brain.hpp"
+
+
+class Animal {
+	protected :
+		std::string _type;
+
+	public :
+		Animal();
+		Animal(std::string type);
+		Animal(const Animal & cpy);
+		virtual ~Animal();
+
+		Animal &operator=(const Animal & cpy);
 		
-		Dog &operator=(const Dog & cpy);
-
-        void makeSound() const;
-		Brain *getBrain(void) const;
+		virtual void makeSound() const = 0;
+		std::string getType(void) const;
+		void setType(std::string const newtype);
 };
 
 #endif

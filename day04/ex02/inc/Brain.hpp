@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Brain.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mourdani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,23 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-#define DOG_HPP
+#ifndef BRAIN_HPP
+#define BRAIN_HPP
 
-#include "Animal.hpp"
+#include <string>
+#include <iostream>
 
-class Dog : public Animal {
-    private:
-    	Brain* _brain;
+class Brain {
+	private :
+		std::string ideas[100];
     public :
-        Dog();
-		Dog(const Dog & cpy);
-		~Dog();
+        Brain();
+		Brain(const Brain & cpy);
+		~Brain();
 		
-		Dog &operator=(const Dog & cpy);
-
-        void makeSound() const;
-		Brain *getBrain(void) const;
+		Brain &operator=(const Brain & cpy);
 };
 
 #endif
