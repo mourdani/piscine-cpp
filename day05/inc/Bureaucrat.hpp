@@ -6,7 +6,7 @@
 /*   By: mourdani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 18:26:14 by mourdani          #+#    #+#             */
-/*   Updated: 2022/12/21 19:51:42 by mourdani         ###   ########.fr       */
+/*   Updated: 2022/12/21 21:20:13 by mourdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class Bureaucrat {
 		class GradeTooHighException : public std::exception {
 			public :
 				const char* what() const throw() {
-					return "Grade too High !!\n";
+					return "Grade too Low !!";
 				};
 
 		
@@ -35,7 +35,7 @@ class Bureaucrat {
 		class GradeTooLowException  : public std::exception {
 			public :
 				const char* what() const throw() {
-					return "Grade too Low !!\n";
+					return "Grade too High !!";
 				};
 		
 		};
@@ -45,7 +45,6 @@ class Bureaucrat {
 		int 		getGrade() const;
 
 		// Setters
-		void		setName(std::string name);
 		void		setGrade(int grade);
 
 		// Incrementing functions
@@ -55,8 +54,8 @@ class Bureaucrat {
 		// Surcharge d'operateur <<
 
 	protected :
-		std::string 	_name;
-		int		_grade;	
+		std::string const	_name;
+		int			_grade;	
 };
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &bureaucrat);
