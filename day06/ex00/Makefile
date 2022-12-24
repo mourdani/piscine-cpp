@@ -1,18 +1,18 @@
 # Name of the program.
-NAME     := Bureaucrat
+NAME     := Conversion
 
 # Sources and objects.
 SRCS     := src/main.cpp \
-		src/Bureaucrat.cpp
+		src/Conversion.cpp
 
-HDRS     := inc/Bureaucrat.hpp 
+HDRS     := inc/Conversion.hpp 
 
 
 OBJS     := $(SRCS:.cpp=.o)
 
 # Define all the compiling flags.
 CXX      := c++
-CXXFLAGS := -std=c++98 -Wall -Werror -Wextra 
+CXXFLAGS :=  -Wall -Werror -Wextra -Wno-conversion -pedantic-errors
 
 # Compile and create everything.
 all: $(NAME) $(HDRS)

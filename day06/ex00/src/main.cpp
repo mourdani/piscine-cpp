@@ -1,52 +1,37 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mourdani <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/21 18:25:52 by mourdani          #+#    #+#             */
-/*   Updated: 2022/12/21 21:24:15 by mourdani         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include "../inc/Conversion.hpp"
 
-#include "../inc/Bureaucrat.hpp"
+#include <string>
+#include <iostream>
+#include <cstdlib>
 
-int main()
-{
-	// Try block to catch any exceptions thrown during the following code execution
-	try
-	{
-		Bureaucrat b("John", 15);
-		std::cout << b << std::endl;
+int main(int ac, char **av) {
+	if (ac != 2 || av[1][0] == '\0') {
+        std::cerr << "Error: invalid argument." << std::endl;
+		return (1);
+	}
 
+	Conversion converter;
+	std::string literal = static_cast<std::string>(av[1]);
+	std::string type = converter.find_type(literal); 
 
-		b.decrementGrade();
-		std::cout << b << std::endl;
-		
-		b.incrementGrade();
-		std::cout << b << std::endl;
-		
-		b.decrementGrade();
-		std::cout << b << std::endl;
-		
-		b.decrementGrade();
-		std::cout << b << std::endl;
+	if (type == "int") {
+		int i = std::atoi(literal.c_str());
+		converter.print(i);
 	}
-	
-	catch (Bureaucrat::GradeTooLowException& e)
-	{
-		std::cout << e.what() << std::endl;
+	else if (type == "float") {
+		float f = std::atof(literal.c_str());
+		converter.print(f);
 	}
-	catch (Bureaucrat::GradeTooHighException& e)
-	{
-		std::cout << e.what() << std::endl;
+	else if (type == "double") {
+		double d = static_cast<double>(std::atof(literal.c_str()));
+		converter.print(d);
 	}
-	catch (std::exception& e)
-	{
-		std::cout << e.what() << std::endl;
+	else if (type == "char") {
+		char c = literal.at(0);
+		converter.print(c);
 	}
-	
-	return 0;
+	else if (type == "invalid") {
+		std::cout << "Invalid character input" << std::endl;
+	}
+	return (0);
 }
-
