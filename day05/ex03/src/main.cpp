@@ -27,18 +27,21 @@ int main()
     Bureaucrat bob("Bob", 1);
     bob.signForm(*rrf);
     bob.executeForm(*rrf);
+    delete rrf;
 
     Form* scf;
     scf = someRandomIntern.makeForm("shrubbery creation", "Garden");
     Bureaucrat alice("Alice", 1);
     alice.signForm(*scf);
     alice.executeForm(*scf);
+    delete scf;
 
     Form* ppf;
     ppf = someRandomIntern.makeForm("presidential pardon", "Prisoner");
     Bureaucrat charlie("Charlie", 1);
     charlie.signForm(*ppf);
     charlie.executeForm(*ppf);
+    delete ppf;
 
     return 0;
 }

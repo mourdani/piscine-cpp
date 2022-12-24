@@ -11,7 +11,7 @@ class Intern
 
     public:
         Intern();
-       ~Intern();
+       virtual ~Intern();
 
         Form* makeForm(const std::string& formName, const std::string& target);
 };

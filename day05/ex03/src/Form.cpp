@@ -66,3 +66,8 @@ void Form::execute(const Bureaucrat& executor) const
 	if (executor.getGrade() > this->getExecGrade())
 		throw Form::GradeTooLowException();
 }
+
+
+Form::~Form()
+{
+}

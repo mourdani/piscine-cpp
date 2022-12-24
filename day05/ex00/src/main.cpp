@@ -17,7 +17,7 @@ int main()
 	// Try block to catch any exceptions thrown during the following code execution
 	try
 	{
-		Bureaucrat b("John", 15);
+		Bureaucrat b("John", 149);
 		std::cout << b << std::endl;
 
 
@@ -34,14 +34,14 @@ int main()
 		std::cout << b << std::endl;
 	}
 	
-	catch (Bureaucrat::GradeTooLowException& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	catch (Bureaucrat::GradeTooHighException& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
+	// catch (Bureaucrat::GradeTooLowException& e)
+	// {
+	// 	std::cout << e.what() << std::endl;
+	// }
+	// catch (Bureaucrat::GradeTooHighException& e)
+	// {
+	// 	std::cout << e.what() << std::endl;
+	// }
 	catch (std::exception& e)
 	{
 		std::cout << e.what() << std::endl;
