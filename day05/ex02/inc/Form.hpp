@@ -1,36 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mourdani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/21 18:26:14 by mourdani          #+#    #+#             */
-/*   Updated: 2022/12/21 23:52:23 by mourdani         ###   ########.fr       */
+/*   Created: 2022/12/21 21:26:39 by mourdani          #+#    #+#             */
+/*   Updated: 2022/12/22 00:50:48 by mourdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BUREAUCRAT_HPP
-#define BUREAUCRAT_HPP
+#ifndef FORM_HPP
+# define FORM_HPP
 
 #include <string>
+#include <ostream>
 #include <iostream>
-#include <stdexcept>
-#include "Form.hpp" 
+#include "Bureaucrat.hpp"
 
-class Form;
+class Bureaucrat;
 
-class Bureaucrat {
-		protected :
-		std::string const	_name;
-		int			_grade;	
+class Form {
+	private :
+		const std::string	_name;
+		bool		_signed;
+		const int		_sign_grade;
+		const int		_exec_grade;
 
 	public :
-
-		// Constructor
-		Bureaucrat(std::string name, int grade);
-
-		// Exception Classes
+		Form(std::string name, int sign_grade, int exec_grade);
 		class GradeTooHighException : public std::exception {
 			public :
 				const char* what() const throw() {
@@ -46,24 +44,23 @@ class Bureaucrat {
 				};
 		
 		};
+		class NotSigned  : public std::exception {
+			public :
+				const char* what() const throw() {
+					return "Form not signed!!";
+				};
+		
+		};
+		std::string getName() const;
+		bool getSigned() const;
+		int getSignGrade() const;
+		int getExecGrade() const;
 
-		// Getters
-		std::string 	getName() const;
-		int 		getGrade() const;
+		void	beSigned(Bureaucrat bureaucrat);
 
-		// Setters
-		void		setGrade(int grade);
-
-		// Incrementing functions
-		void incrementGrade();
-		void decrementGrade();
-
-		// Surcharge d'operateur <<
-
-		void signForm(Form &form);
+		virtual void execute(const Bureaucrat& executor) const = 0;
 };
 
-std::ostream &operator<<(std::ostream &out, const Bureaucrat &bureaucrat);
-
+std::ostream & operator<<(std::ostream & os, const Form & form);
 
 #endif

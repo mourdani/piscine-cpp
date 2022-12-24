@@ -14,9 +14,9 @@
 
 // Constructor
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name) {
-	if (grade > 150)
+	if (grade < 1)
 		throw Bureaucrat::GradeTooHighException();
-	else if (grade < 1)
+	else if (grade > 150)
 		throw Bureaucrat::GradeTooLowException();
 	else
 		this->_grade = grade;
@@ -28,9 +28,9 @@ int		Bureaucrat::getGrade() const {return this->_grade;}
 
 // Setter
 void		Bureaucrat::setGrade(int grade) {
-	if (grade > 150)
+	if (grade < 1)
 		throw GradeTooHighException();
-	else if (grade < 1)
+	else if (grade > 150)
 		throw GradeTooLowException();
 	else
 		this->_grade = grade;
@@ -39,16 +39,16 @@ void		Bureaucrat::setGrade(int grade) {
 // Incrementation functions
 void Bureaucrat::incrementGrade() {
 	this->_grade -=1;
-	if (this->_grade > 150)
+	if (this->_grade < 1)
 		throw Bureaucrat::GradeTooHighException();
-	else if (this->_grade < 1)
+	else if (this->_grade > 150)
 		throw Bureaucrat::GradeTooLowException();
 }
 void Bureaucrat::decrementGrade() {
 	this->_grade +=1;
-	if (this->_grade > 150)
+	if (this->_grade < 1)
 		throw Bureaucrat::GradeTooHighException();
-	else if (this->_grade < 1)
+	else if (this->_grade > 150)
 		throw Bureaucrat::GradeTooLowException();
 }
 

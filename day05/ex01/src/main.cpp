@@ -15,26 +15,24 @@
 
 int main()
 {
-    	try
-    	{
-		Form form1("form1", 3, 3);
+	try
+    {
+		Form form1("form1", 1, 3);
 		std::cout << form1 << std::endl;
 
 		Form form2("form2", 1, 1);
 		std::cout << form2 << std::endl;
 
-		Bureaucrat bureaucrat1("bureaucrat1", 3);
+		Bureaucrat bureaucrat1("bureaucrat1", 1);
 		std::cout << bureaucrat1 << std::endl;
 
 		Bureaucrat bureaucrat2("bureaucrat2", 50);
 		std::cout << bureaucrat2 << std::endl;
 		
 
-		//bureaucrat1.signForm(form2);
-		form2.beSigned(bureaucrat1);
+		bureaucrat1.signForm(form1);
+		//form2.beSigned(bureaucrat1);
 		std::cout << form2 << std::endl;
-
-
 	}
 	catch (Form::GradeTooLowException& e)
 	{

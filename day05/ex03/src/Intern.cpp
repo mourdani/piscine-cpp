@@ -34,7 +34,7 @@ std::string namesArray[3] = {
 	
 	for(int i = 0; i < 3; i++)
 	{
-		if(formName == namesArray[i])
+		if (formName == namesArray[i])
 		{
 			std::cout << "Intern creates " << formName << std::endl;
 			return ((this->*createForm[i])(target));

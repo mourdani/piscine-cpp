@@ -17,9 +17,10 @@ int main()
 	// Try block to catch any exceptions thrown during the following code execution
 	try
 	{
-		Bureaucrat b("John", 1);
+		Bureaucrat b("John", 15);
 		std::cout << b << std::endl;
-		
+
+
 		b.decrementGrade();
 		std::cout << b << std::endl;
 		

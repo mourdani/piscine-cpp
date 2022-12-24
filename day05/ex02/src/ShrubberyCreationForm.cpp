@@ -46,6 +46,6 @@ void ShrubberyCreationForm::execute(const Bureaucrat& executor) const
 	 out << " /  |  \\ " << std::endl;
 	 out << "/   |   \\" << std::endl;
 	 out << "---------" << std::endl;
-	 out << "   |||	    -" << std::endl;
-	 out << "   |||	    -" << std::endl;
+	 out << "   |||	    " << std::endl;
+	 out << "   |||	    " << std::endl;
 }

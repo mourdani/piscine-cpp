@@ -5,10 +5,10 @@
 class Intern
 {
     private:
-
 	    Form	*_createPresidentialForm(std::string target);
 	    Form	*_createRobotomyForm(std::string target);
 	    Form	*_createShrubberyForm(std::string target);
+
     public:
         Intern();
        ~Intern();

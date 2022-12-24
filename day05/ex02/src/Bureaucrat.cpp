@@ -72,8 +72,23 @@ void Bureaucrat::signForm(Form &form) {
 	}
 }
 
+void Bureaucrat::executeForm(const Form& form)
+{
+
+	try
+	{
+			form.execute(*this);
+			std::cout << this->_name << " executed " << form.getName() << std::endl;
+	}
+	catch (const std::exception& e)
+	{
+		std::cout << this->_name << " could not execute " << form.getName() << ": " << e.what() << std::endl;
+	}
+}
+
 // Overloaded operator << 
 std::ostream &operator<< (std::ostream &out, const Bureaucrat &bureaucrat) {
 	out << "Bureaucrat " << bureaucrat.getName() << ", grade : " << bureaucrat.getGrade();
 	return out;
 }
+
