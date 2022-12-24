@@ -1,6 +1,11 @@
 #ifndef  CONVERSION_H
 # define CONVERSION_H
-# include <string>
+
+#include <string>
+#include <string>
+#include <iomanip>
+#include <limits.h>
+#include <iostream>
 
 class Conversion {
 
