@@ -1,12 +1,10 @@
 # Name of the program.
-NAME     := Conversion
+NAME     := Serialize
 
 # Sources and objects.
-SRCS     := src/main.cpp \
-		src/Conversion.cpp
+SRCS     := src/main.cpp 
 
-HDRS     := inc/Conversion.hpp 
-
+HDRS     := 
 
 OBJS     := $(SRCS:.cpp=.o)
 
