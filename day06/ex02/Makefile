@@ -1,18 +1,16 @@
 # Name of the program.
-NAME     := Conversion
+NAME     := Identify
 
 # Sources and objects.
-SRCS     := src/main.cpp \
-		src/Conversion.cpp
+SRCS     := src/main.cpp 
 
-HDRS     := inc/Conversion.hpp 
-
+HDRS     := 
 
 OBJS     := $(SRCS:.cpp=.o)
 
 # Define all the compiling flags.
 CXX      := c++
-CXXFLAGS := -std=c++98 -Wall -Werror -Wextra -Wno-conversion -pedantic-errors 
+CXXFLAGS :=  -Wall -Werror -Wextra -std=c++98
 
 # Compile and create everything.
 all: $(NAME) $(HDRS)
