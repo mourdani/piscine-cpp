@@ -13,29 +13,22 @@ class Array {
 		Array(Array const &cpy): _array(NULL) { *this = cpy; }
 		~Array() { delete[] _array; }
 
-		Array	&operator=(Array &rhs) {
+		Array	&operator=(Array const &rhs) {
 			if (this == &rhs)
 				return (*this);
 
 			delete[] _array;
-			_array = new T[rhs.size()];
-			_size = rhs.size();
+			this->_array = new T[rhs.size()];
+			this->_size = rhs.size();
 			for (unsigned int i = 0; i < _size; i++)
-				_array[i] = rhs._array[i];
+				this->_array[i] = rhs._array[i];
 			return (*this);
 		}
 
-		class	ArrayUnreachable : public std::exception {
-			public:
-				const char	*what() const throw() {
-					return ("The value to access is unreachable!");
-				};
-		};
-
 		T	&operator[](unsigned int i) const {
 			if (i < 0 || i >= _size)
-				throw ArrayUnreachable();
-			return(_array[i]);
+				throw std::out_of_range("length out of range.");
+			return(this->_array[i]);
 		}
 
 		unsigned int	size() const { return (this->_size); }
